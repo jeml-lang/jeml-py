@@ -6,7 +6,7 @@ A simple Python library for working with [JEML (Just Enough Markup Language)](ht
 
 Automatic:  
 ```shell
-pip install jeml
+pip install jeml==1.0.1
 ```
 
 Manual:  
