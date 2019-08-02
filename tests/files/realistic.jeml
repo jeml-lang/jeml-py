@@ -1,0 +1,57 @@
+###
+  This example is what I would consider a reasonable use for JEML in
+  configuration files.
+###
+
+package {
+  name "project name"
+  version "1.0.0"
+  authors [ "foo <foo@example.com>" "bar <bar@example.com>" ]
+  homepage "https://github.com/foo/bar"
+  description "Lorem ipsum dolor sit amet"
+  full-description """Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet"""
+  license "MIT"
+  public true
+  keywords [
+    "foo"
+    "bar"
+    "baz"
+    "buzz"
+  ]
+  dependencies_a [
+    "jeml>=x.y.z"
+    "foo<=x.y.z"
+    "bar==x.y.z"
+  ]
+  dependencies_b {
+    jeml { version ">=x.y.z" }
+    foo  { version "<=x.y.z" }
+    bar  { version "==x.y.z" }
+  }
+  include [
+    "*.ext"
+    "docs/**/*.md"
+  ]
+  exclude [
+    ".git*"
+    "build/"
+  ]
+}
+
+development {
+  build-directory "./build/dev"
+  debug true
+  opt-level 0
+  incremental true
+  verbose-output true
+  flags [ "foo" "bar" "baz" ]
+}
+
+release {
+  build-directory "./build/release"
+  debug false
+  opt-level 3
+  incremental false
+  verbose-output false
+  flags [ "foo" "bar" "baz" ]
+}
